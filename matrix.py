@@ -31,35 +31,36 @@ while True:
     print("1. Penjumlahan")
     print("2. Pengurangan")
     print("3. Perkalian")
-    print("4. Exit")
+    print("0. Exit")
 
-    pilihan = input("Pilih menu (1-4): ")
-    if pilihan not in ["1", "2", "3", "4"]:
-        print("Pilihan tidak valid, coba lagi.")
-        continue
+    pilihan = input("Pilih menu (0-3): ")
 
-    if pilihan == "4":
+    if pilihan == "0":
         print("Program selesai. Terima kasih!")
         break
 
-    n = int(input("Masukkan jumlah baris matriks: "))
-    m = int(input("Masukkan jumlah kolom matriks: "))
+    elif pilihan in ["1", "2", "3"]:
+        n = int(input("Masukkan jumlah baris matriks: "))
+        m = int(input("Masukkan jumlah kolom matriks: "))
 
-    print("\nInput Matriks A:")
-    A = input_matrix(n, m)
+        print("\nInput Matriks A:")
+        A = input_matrix(n, m)
 
-    print("\nInput Matriks B:")
-    B = input_matrix(n, m)
+        print("\nInput Matriks B:")
+        B = input_matrix(n, m)
 
-    if pilihan == "1":
-        print("\nHasil Penjumlahan:")
-        print_matrix(add_matrix(A, B))
-    elif pilihan == "2":
-        print("\nHasil Pengurangan:")
-        print_matrix(sub_matrix(A, B))
-    elif pilihan == "3":
-        if len(A[0]) != len(B):
-            print("Perkalian tidak bisa dilakukan (jumlah kolom A ≠ jumlah baris B).")
-        else:
-            print("\nHasil Perkalian:")
-            print_matrix(mul_matrix(A, B))
+        if pilihan == "1":
+            print("\nHasil Penjumlahan:")
+            print_matrix(add_matrix(A, B))
+        elif pilihan == "2":
+            print("\nHasil Pengurangan:")
+            print_matrix(sub_matrix(A, B))
+        elif pilihan == "3":
+            if len(A[0]) != len(B):
+                print("Perkalian tidak bisa dilakukan (jumlah kolom A ≠ jumlah baris B).")
+            else:
+                print("\nHasil Perkalian:")
+                print_matrix(mul_matrix(A, B))
+
+    else:
+        print("Pilihan tidak valid, coba lagi.")
